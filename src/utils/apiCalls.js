@@ -110,5 +110,3 @@ export const removeFavorite = async (userId, favId) => {
     throw Error('Unable to remove this movie as a favorite at this time. Please try again later')
   }
 }
-
-

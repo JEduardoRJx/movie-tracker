@@ -16,7 +16,7 @@ export const MovieCard = ({ id, title, date, poster, movie, isFavorite, toggleFa
       <div className='movie-details'>
         <h2>{title}</h2>
         <h3>{fixedDate}</h3>
-        <button 
+        {/* <button 
           className={`fav-btn ${toggleFavColor}`}
           type="button"
           disabled={!user}
@@ -24,7 +24,7 @@ export const MovieCard = ({ id, title, date, poster, movie, isFavorite, toggleFa
             toggleFav(id);
             refreshFavs(movie);
           }}
-        >{favStatus}</button>
+        >{favStatus}</button> */}
       </div>
       <Link to={`/movies/${id}`}>
         <img 
