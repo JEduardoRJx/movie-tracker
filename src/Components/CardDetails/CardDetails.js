@@ -41,7 +41,7 @@ export const CardDetails = ({ movie, refreshFavs, user, toggleFav }) => {
               refreshFavs(movie);
             }}
           >{favStatus}</button> */}
-          <Link to='/movie-tracker/'>
+          <Link to='/'>
             <button 
               className='back-btn' 
               type='button'

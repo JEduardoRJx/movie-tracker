@@ -38,7 +38,7 @@ const Header = ({ user, setUser, clearFavs, favorites }) => {
             disabled={!user}
           >Sign Out</button>
         </Link> */}
-        <Link to='/movie-tracker/'>
+        <Link to='/'>
           <button 
             className='home nav-btn'
           >Back to All Movies</button>

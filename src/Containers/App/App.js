@@ -39,13 +39,13 @@ export class App extends Component {
 
   render() {
     const { errorMsg, 
-      user 
+      // user 
     } = this.props
     return (
       <div className="App">
-        <Header />
+        <Header exact path='/'/>
           {errorMsg && <h2>{errorMsg}</h2>}
-          <Route exact path='/movie-tracker/' render={() => <MoviesContainer viewAll={true} refreshFavs={this.refreshFavs}/>}/>
+          <Route exact path='/' render={() => <MoviesContainer viewAll={true} refreshFavs={this.refreshFavs}/>}/>
           {/* <Route path='/login' render={() => <LoginForm />} /> */}
           {/* <Route path='/createaccount' render={() => <CreateAccount />} /> */}
           {/* <Route path='/favorites' render={() => <MoviesContainer viewAll={false} refreshFavs={this.refreshFavs}/>}/> */}
@@ -57,7 +57,7 @@ export class App extends Component {
               });
 
               if(foundMovie === undefined) {
-                  return (<Redirect to='/movie-tracker/' />)
+                  return (<Redirect to='/' />)
               } else {
                   return (
                     <CardDetails
