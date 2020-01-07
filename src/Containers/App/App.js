@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchMovies, getFavorites, addFavorite, removeFavorite } from '../../utils/apiCalls';
 import { addMovies, throwError, setFavs } from '../../actions';
@@ -41,27 +41,32 @@ export class App extends Component {
     const { errorMsg, user } = this.props
     return (
       <div className="App">
+        <Redirect to='/' />
         <Header />
           {errorMsg && <h2>{errorMsg}</h2>}
           <Route exact path='/' render={() => <MoviesContainer viewAll={true} refreshFavs={this.refreshFavs}/>}/>
-          <Route exact path='/login' 
-            render={() => <LoginForm />} />
-          <Route exact path='/createaccount' 
-            render={() => <CreateAccount />} />
-          <Route exact path='/favorites' render={() => <MoviesContainer viewAll={false} refreshFavs={this.refreshFavs}/>}/>
+          {/* <Route path='/login' render={() => <LoginForm />} /> */}
+          {/* <Route path='/createaccount' render={() => <CreateAccount />} /> */}
+          {/* <Route path='/favorites' render={() => <MoviesContainer viewAll={false} refreshFavs={this.refreshFavs}/>}/> */}
           <Route
             path="/movies/:id"
             render={({ match }) => {
               let foundMovie = this.props.movies.find(movie => {
                 return movie.id === parseInt(match.params.id);
               });
-              return (
-                <CardDetails
-                  key={foundMovie.id}
-                  movie={foundMovie}
-                  refreshFavs={this.refreshFavs}
-              />
-            );
+
+              if(foundMovie === undefined) {
+                  return (<Redirect to='/' />)
+              } else {
+                  return (
+                    <CardDetails
+                      key={foundMovie.id}
+                      movie={foundMovie}
+                      refreshFavs={this.refreshFavs}
+                  />
+                );
+              }
+
           }}
         />
       </div>

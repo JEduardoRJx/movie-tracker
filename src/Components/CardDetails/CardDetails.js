@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { toggleFav } from '../../actions';
 import './CardDetails.scss';
 import PropTypes from 'prop-types';
@@ -10,10 +10,11 @@ export const CardDetails = ({ movie, refreshFavs, user, toggleFav }) => {
 
   const releaseDate = new Date(release_date + 'T00:00').toString().split(' ').slice(1, 4).join(' ');
 
-  const favStatus = isFavorite ? 'Remove Favorite' : 'Add Favorite';
+  // const favStatus = isFavorite ? 'Remove Favorite' : 'Add Favorite';
 
   return (
     <section className="cardDetails">
+      {/* <Redirect to='/' /> */}
       <img 
         className='movie-backdrop' 
         src={`http://image.tmdb.org/t/p/w1280${backdrop_path}`} 
@@ -30,7 +31,7 @@ export const CardDetails = ({ movie, refreshFavs, user, toggleFav }) => {
           <h2>Released: {releaseDate}</h2>
           <p>{overview}</p>
           <h2>Vote Average: {vote_average}</h2>
-          <button 
+          {/* <button 
             className='fav-btn-wrapper' 
             type="button"
             disabled={!user}
@@ -38,7 +39,7 @@ export const CardDetails = ({ movie, refreshFavs, user, toggleFav }) => {
               toggleFav(id);
               refreshFavs(movie);
             }}
-          >{favStatus}</button>
+          >{favStatus}</button> */}
           <Link to='/'>
             <button 
               className='back-btn' 
