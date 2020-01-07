@@ -5,8 +5,8 @@ import { fetchMovies, getFavorites, addFavorite, removeFavorite } from '../../ut
 import { addMovies, throwError, setFavs } from '../../actions';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import CardDetails from '../../Components/CardDetails/CardDetails';
-import CreateAccount from '../CreateAccount/CreateAccount'
-import LoginForm from '../LoginForm/LoginForm';
+// import CreateAccount from '../CreateAccount/CreateAccount'
+// import LoginForm from '../LoginForm/LoginForm';
 import Header from '../Header/Header';
 import './App.scss';
 
@@ -38,7 +38,9 @@ export class App extends Component {
   } 
 
   render() {
-    const { errorMsg, user } = this.props
+    const { errorMsg, 
+      // user 
+    } = this.props
     return (
       <div className="App">
         <Redirect to='/' />

@@ -9,8 +9,8 @@ export const MovieCard = ({ id, title, date, poster, movie, isFavorite, toggleFa
 
   const fixedDate = new Date(date + 'T00:00').toString().split(' ').slice(1, 4).join(' ');
 
-  const favStatus = isFavorite ? 'Remove Favorite' : 'Add Favorite';
-  const toggleFavColor = isFavorite ? 'favorited' : '';
+  // const favStatus = isFavorite ? 'Remove Favorite' : 'Add Favorite';
+  // const toggleFavColor = isFavorite ? 'favorited' : '';
   return (
     <article className='movie-card' id={id}>
       <div className='movie-details'>

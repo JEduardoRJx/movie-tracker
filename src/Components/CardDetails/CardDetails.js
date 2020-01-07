@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { toggleFav } from '../../actions';
 import './CardDetails.scss';
 import PropTypes from 'prop-types';
 
 export const CardDetails = ({ movie, refreshFavs, user, toggleFav }) => {
-  const {backdrop_path, id, isFavorite, overview, poster_path, release_date, title, vote_average} = movie;
+  const {backdrop_path, 
+    // id, isFavorite, 
+    overview, poster_path, release_date, title, vote_average} = movie;
 
   const releaseDate = new Date(release_date + 'T00:00').toString().split(' ').slice(1, 4).join(' ');
 
@@ -14,7 +16,6 @@ export const CardDetails = ({ movie, refreshFavs, user, toggleFav }) => {
 
   return (
     <section className="cardDetails">
-      {/* <Redirect to='/' /> */}
       <img 
         className='movie-backdrop' 
         src={`http://image.tmdb.org/t/p/w1280${backdrop_path}`} 
