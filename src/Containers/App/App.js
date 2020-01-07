@@ -57,7 +57,7 @@ export class App extends Component {
               });
 
               if(foundMovie === undefined) {
-                  return (<Redirect to='' />)
+                  return (<Redirect to='/movie-tracker/' />)
               } else {
                   return (
                     <CardDetails
